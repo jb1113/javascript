@@ -34,9 +34,9 @@
     이때는 HTML과 JavaScript로 작성한 코드의 결과가 아래와 같이 달라집니다.
 
     ```
-    **JavaScript**
+    JavaScript
     2
-    **HTML**
+    HTML
     1+1
     ```
 
