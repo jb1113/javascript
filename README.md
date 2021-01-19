@@ -11,6 +11,8 @@
     이제 우리는 HTML을 이용해 웹페이지를 만들고, JavaScript를 이용해 사용자와 상호작용할 수 있도록 추가할 겁니다.
     즉, 정적인 정보인 HTML을 JavaScript가 동적으로 만들어 주는 것입니다.
 
+- JavaScript의 역할
+
     ### JavaScript의 역할
 
     JavaScript의 가장 중요한 역할은 사용자와 상호작용 할 수 있게 하는 것입니다.
@@ -69,4 +71,4 @@
 
     [JavaScript Introduction](https://www.w3schools.com/js/js_intro.asp)
 
-    [JavaScript Where To](https://www.w3schools.com/js/js_whereto.asp)
+    [https://www.w3schools.com/js/js_whereto.asp](https://www.w3schools.com/js/js_whereto.asp)
