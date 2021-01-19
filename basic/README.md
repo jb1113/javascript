@@ -99,3 +99,21 @@
     ### 참고자료
 
     [JavaScript Events](https://www.w3schools.com/js/js_events.asp)
+
+- 콘솔
+
+    기존에는 JavaScript 코드를 작성하고 해당 코드가 작동하는지 확인하기 위해서 파일을 만들고 이를 웹사이트로 만들었어야 했습니다.
+    이렇게 복잡한 과정을 거치지 않고 쉽게 JavaScript 코드를 실행시키기 위해 콘솔(Console)을 사용합니다.
+    콘솔을 통해 간단한 JavaScript 코드를 실행 시킬수 있습니다.
+
+    ### 콘솔(Console)
+
+    웹 브라우저에서 개발자모드(F12) 또는 마우스 오른쪽 버튼 → 검사 를 누르면 뜨는 창을 통해 Console이라는 탭을 이용하면 파일을 생성하지 않고도 바로 JavaScript 코드를 실행할 수 있습니다.
+
+    예를 들어 어떤 문자열의 길이를 알고싶은 경우에는 콘솔창을 통해 다음과 같이 어떤 문자열의 길이를 구할수 있습니다.
+
+    ```jsx
+    alert('Lorem ipsum dolor sit amet consectetur adipisicing elit.'.length);
+    ```
+
+    중요한 것은 **콘솔을 통해서 입력된 JavaScript 코드는 현재 페이지에 삽입되어 있는 JavaScript 코드 인것처럼 동작**합니다.
