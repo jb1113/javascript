@@ -117,3 +117,50 @@
     ```
 
     중요한 것은 **콘솔을 통해서 입력된 JavaScript 코드는 현재 페이지에 삽입되어 있는 JavaScript 코드 인것처럼 동작**합니다.
+
+- 제어할 태그 선택하기
+
+    어떤 이벤트가 일어났을때 스타일이 바뀌는 기능을 구현하려고 합니다.
+    이때, 어떤 요소에 스타일을 적용할 것인지를 선택하는 작업이 필요합니다.
+    어떻게 하면 원하는 태그만 선택해서 기능을 적용시킬 수 있을까요?
+
+    ### 제어할 태그 선택하기 (querySelector)
+
+    CSS를 이용해서 페이지의 스타일을 바꾸는 것과 JavaScript의 이벤트라는 개념 이 둘을 조합해서 어떤 이벤트가 일어났을때, 페이지의 스타일을 바꾸는 기능을 구현해봅시다.
+    이벤트가 일어났을때 어떤 태그에 스타일이 지정될지 선택하는 작업이 필요합니다.
+    이를 위해 CSS의 선택자를 이용합니다.
+    CSS 선택자에는 크게 3가지 종류가 있습니다.
+    태그 선택자, class 선택자, id 선택자 입니다.
+
+    ### querySelector
+
+    querySelector라는 함수를 사용하면 이러한 선택자를 이용해서 원하는 태그를 선택할 수 있습니다.
+
+    ```jsx
+    document.querySelector('body')
+    ```
+
+    이렇게 하면 페이지 내에서 body라는 이름의 태그를 모두 선택하게 됩니다.
+    만약 subject라는 class를 가진 태그를 선택하고 싶다면, 따옴표 사이에 .subject를 쓰면 되고, primary라는 id를 가진 태그를 선택하고 싶다면 #primary라고 쓰면 됩니다.
+    이제 태그를 선택 했으니, 고른 태그에 스타일을 적용해봅시다.
+    이를 위해서는 다음과 같은 코드를 사용합니다.
+
+    ```jsx
+    document.querySelector('body').style.backgroundColor = 'black';
+    ```
+
+    body 태그를 모두 고른 뒤, 여기에 스타일을 적용하기 위해서 style이라고 써주고, 여러 스타일 중에서도 배경색상을 지정하기 위해서 backgroundColor라고 써 준 것입니다.
+    이렇게 완성한 JavaScript 코드를 이벤트가 일어날 때마다 실행하면 됩니다.
+    예를 들어, 버튼을 클릭할 때 이러한 스타일 변화가 일어나도록 만들려면 다음과 같이 하면 됩니다.
+
+    ```jsx
+    <input type="button" value="night" onclick="document.querySelector('body').style.backgroundColor = 'black';">
+    ```
+
+    ---
+
+    ### 참교자료
+
+    [Document.querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+
+    [HTML DOM querySelector() Method](https://www.w3schools.com/jsref/met_document_queryselector.asp)
