@@ -282,3 +282,85 @@
     	}
     ">
     ```
+
+- 리팩토링(중복의 제거)
+
+    하나의 기능을 하는 코드를 만들기 위해서는 다양한 방법이 존재합니다.
+    그렇다면 이렇게 다양한 코드 중에서 어떤 것이 가장 좋은 코드일까요?
+    작성한 코드를 조금 더 효율적이고 간결하게 만드는 과정을 리팩토링(Refactoring)이라고 합니다.
+    리팩토링을 통해 코드의 중복을 제거하고 더 간결하고 가독성 높은 코드를 만들 수 있습니다.
+
+    ### 리팩토링
+
+    리팩토링이란 비효율적인 코드를 효율적으로 만들어서 가독성을 높이고 유지보수가 쉽도록 만드는 것입니다.
+    코드의 기능적인 면에서는 변화가 없습니다.
+
+    이전에 작성했던 아래의 코드를 리팩토링하면 어떻게 변경해야 할까요?
+
+    ```jsx
+    <input type="button" id="toggle" value="dark" onclick="
+    	if(document.querySelector('#toggle').value === 'dark') {
+    		document.querySelector('body').style.backgroundColor = 'black';
+    		document.querySelector('body').style.color = 'white';
+    		document.querySelector('#toggle').value = 'day';
+    	} else {
+    		document.querySelector('body').style.backgroundColor = 'white';
+    		document.querySelector('body').style.color = 'black';
+    		document.querySelector('#toggle').value = 'dark';
+    	}
+    ">
+    ```
+
+    여기에서는 자기가 속한 버튼을 찾기 위해서 document.querySelector('#toggle') 이라는 코드를 사용했습니다.
+    하지만 만약 이 코드를 복사해서 하나의 버튼을 더 만들게 된다면 어떻게 될까요?
+    제대로된 동작을 하지 않을겁니다.
+
+    id는 하나의 태그에만 적용될 수 있으므로 새롭게 만들어진 버튼에는 새로운 id값을 적용해 주어야 합니다.
+    예를 들어 새롭게 만든 버튼의 id를 toggle2라고 만들었다고 해봅시다.
+    그렇게 되면 이 코드에서 모든 toggle을 toggle2로 직접 바꿔주는 작업을 진행해야 합니다. 무척 비효율적입니다.
+
+    ### this 키워드 사용하기
+
+    그래서 JavaScript에는 자기 자신을 가리키기 위한 this라는 키워드가 있습니다.
+    document.querySelector('#toggle')대신 this를 쓸 수 있습니다.
+
+    ```jsx
+    <input type="button" id="toggle" value="dark" onclick="
+    	if(this.value === 'dark') {
+    		document.querySelector('body').style.backgroundColor = 'black';
+    		document.querySelector('body').style.color = 'white';
+    		this.value = 'day';
+    	} else {
+    		document.querySelector('body').style.backgroundColor = 'white';
+    		document.querySelector('body').style.color = 'black';
+    		this.value = 'dark';
+    	}
+    ">
+    ```
+
+    this를 사용하여 변경한 코드가 이전의 코드보다 훨씬 간결해진 것을 확인할 수 있습니다.
+    그 뿐만 아니라, 이 코드는 몇 번을 복사해서 붙여넣더라도 따로 추가적인 수정 없이 계속해서 사용할 수 있습니다.
+
+    ### 중복 제거하기
+
+    두 번째로 리팩토링 해 볼 부분은 바로 document.querySelector('body') 부분입니다.
+    이 부분이 무려 4번이나 등장하고 있습니다.
+    코딩을 할때에는 중복을 없애주는 것이 중요합니다.
+
+    ```jsx
+    <input type="button" id="toggle" value="dark" onclick="
+    	var target = document.querySelector('body');
+    	if(this.value === 'dark') {
+    		target.style.backgroundColor = 'black';
+    		target.style.color = 'white';
+    		this.value = 'day';
+    	} else {
+    		target.style.backgroundColor = 'white';
+    		target.style.color = 'black';
+    		this.value = 'dark';
+    	}
+    ">
+    ```
+
+    이렇게 하게되면 target이라는 변수를 만들어서 거기에 body 태그를 찾아서 넣고, 이 target 변수만 간단하게 사용해서 코드의 길이를 줄일 수 있습니다.
+    그 뿐만 아니라 target의 값만 변경해주면 나머지 target이 쓰이는 네 줄의 target 값을 모두 바꿀 수 있다는 장점도 있습니다.
