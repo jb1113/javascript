@@ -172,3 +172,113 @@
 
     이 코드는 오른쪽 1이 왼쪽 1보다 크다는 의미가 됩니다.
     하지만 이는 거짓이기 때문에 결과는 False가 됩니다.
+
+- 조건문
+
+    ### 조건문이란?
+
+    조건문이란 프로그램이 조건에 따라서 다른 기능들이 다른 순서에 따라서 실행되도록 만들어주는 것입니다.
+    조건문은 단순하고 반복적인 업무 뿐만 아니라 복잡한 업무까지도 컴퓨터가 다룰 수 있도록 해줍니다.
+
+    ### 조건문
+
+    ```jsx
+    <script>
+    	document.write('1<br>');
+    	if (true) {
+    		document.write('2<br>');
+    	} else {
+    		document.write('3<br>');
+    	}
+    	document.write('4<br>');
+    </script>
+    ```
+
+    위 코드를 실행한 결과로 1 2 4라는 결과가 출력되는 것을 확인할 수 있습니다.
+    3은 출력되지 않습니다.
+
+    ```jsx
+    <script>
+    	document.write('1<br>');
+    	if (false) {
+    		document.write('2<br>');
+    	} else {
+    		document.write('3<br>');
+    	}
+    	document.write('4<br>');
+    </script>
+    ```
+
+    위 코드를 실행하게 되면 아까와는 달리 1 3 4라는 결과가 출력되게 됩니다.
+    그렇다면 if(true)와 if(false), 그리고 else가 어떤 역할을 하길래 이런 결과가 나오는 것일까요?
+
+    if문의 괄호 안에는 Boolean 데이터 타입이 옵니다.
+    그리고 만약 그 Boolean이 true이면 if의 첫번째 중괄호에 있는 코드가 실행되고, else의 두번째 중괄호에 있는 코드는 무시됩니다.
+    반대로 Boolean이 false이면 if의 첫번째 중괄호는 무시되고, else의 두번째 중괄호에 있는 코드가 실행됩니다.
+
+    ### 조건문을 활용한 토글 만들기
+
+    아래와 같은 button이 있다고 가정해 봅시다.
+
+    ```jsx
+    <input type="button" id="toggle" value="dark">
+    ```
+
+    이 버튼의 value값을 기준으로, 이 value가 dark이면 light 버전으로 바뀌는 코드를, value가 light이면 dark 버전으로 바뀌는 코드를 실행하도록 프로그램을 만들겁니다.
+
+    이 버튼의 onclick 속성 안에 다음과 같은 JavaScript 코드를 작성합니다.
+
+    ```jsx
+    <input type="button" id="toggle" value="dark" onclick="
+    	if(???) {
+    		document.querySelector('body').style.backgroundColor = 'black';
+    		document.querySelector('body').style.color = 'white';
+    	} else {
+    		document.querySelector('body').style.backgroundColor = 'white';
+    		document.querySelector('body').style.color = 'black';
+    	}
+    ">
+    ```
+
+    그렇다면 저 ??? 속에는 어떤 코드가 들어가야 할까요?
+    우선은 document에서 id가 toggle인 버튼을 찾아서, 그 버튼의 value가 'dark'인지 아닌지를 알아내야 합니다.
+    이를 위해서 다음과 같은 코드를 사용합니다.
+
+    ```jsx
+    document.querySelector('#toggle').value
+    ```
+
+    현재 페이지에서 querySelector를 사용해서 id가 toggle인 태그를 찾기 위해서 id를 나타내는 #을 붙여줍니다.
+    그리고 찾아낸 태그의 value를 알기 위해서 .value 속성을 사용합니다.
+
+    이렇게 가져온 value 값을 dark와 비교하면 됩니다.
+
+    ```jsx
+    <input type="button" id="toggle" value="dark" onclick="
+    	if(document.querySelector('#toggle').value === 'dark') {
+    		document.querySelector('body').style.backgroundColor = 'black';
+    		document.querySelector('body').style.color = 'white';
+    	} else {
+    		document.querySelector('body').style.backgroundColor = 'white';
+    		document.querySelector('body').style.color = 'black';
+    	}
+    ">
+    ```
+
+    하지만 이렇게만 작성하게 되면 버튼이 눌릴때마다 value가 바뀌지 않습니다.
+    그렇기 때문에 항상 원래 설정된 value인 dark에 해당하는 코드인 첫번째 중괄호의 코드만 실행되게 됩니다.
+    이를 해결하기 위해서는 코드가 실행될 때마다 해당 버튼의 value 값을 바꿔주는 코드를 추가해 주어야 합니다.
+
+    ```jsx
+    <input type="button" id="toggle" value="dark" onclick="
+    	if(document.querySelector('#toggle').value === 'dark') {
+    		document.querySelector('body').style.backgroundColor = 'black';
+    		document.querySelector('body').style.color = 'white';
+    		document.querySelector('#toggle').value = 'day';
+    	} else {
+    		document.querySelector('body').style.backgroundColor = 'white';
+    		document.querySelector('body').style.color = 'black';
+    		document.querySelector('#toggle').value = 'dark';
+    	}
+    ">
+    ```
