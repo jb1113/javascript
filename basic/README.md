@@ -113,6 +113,14 @@
 
     [JavaScript Variables](https://www.w3schools.com/js/js_variables.asp)
 
+    [Assignment (=)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment)
+
+    [Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)
+
+    [JavaScript Operators](https://www.w3schools.com/js/js_operators.asp)
+
+    [JavaScript Operators Reference](https://www.w3schools.com/jsref/jsref_operators.asp)
+
 - 비교연산자와 Boolean
 
     조건문을 만들기 위해서는 먼저 조건을 만들 수 있어야 합니다.
@@ -172,6 +180,14 @@
 
     이 코드는 오른쪽 1이 왼쪽 1보다 크다는 의미가 됩니다.
     하지만 이는 거짓이기 때문에 결과는 False가 됩니다.
+
+    ---
+
+    ### 참고자료
+
+    [Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
+
+    [JavaScript Comparison and Logical Operators](https://www.w3schools.com/js/js_comparisons.asp)
 
 - 조건문
 
@@ -282,6 +298,18 @@
     	}
     ">
     ```
+
+    ---
+
+    ### 참교자료
+
+    [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+
+    [if...else](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+
+    [JavaScript if else else if](https://www.w3schools.com/js/js_if_else.asp)
+
+    [JavaScript Switch Statement](https://www.w3schools.com/js/js_switch.asp)
 
 - 리팩토링(중복의 제거)
 
@@ -423,6 +451,16 @@
 
     이 외에도 JavaScript에서는 배열에 대한 다양한 함수들이 존재합니다.
     더 알아보기 위해서는 인터넷에 "javascript array" + "원하는 키워드"로 검색해보면 됩니다.
+
+    ---
+
+    ### 참고자료
+
+    [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+    [JavaScript Arrays](https://www.w3schools.com/js/js_arrays.asp)
+
+    [JavaScript Array Reference](https://www.w3schools.com/jsref/jsref_obj_array.asp)
 
 - 반복문
 
@@ -599,3 +637,25 @@
 
     해당 코드를 실행하면 문서 안의 모든 `<a>` 태그들의 색상이 blueviolet으로 변경되는 것을 확인할 수 있습니다.
     이렇게 완성된 코드를 각각의 조건에 맞게 넣어주면 됩니다.
+
+    ---
+
+    ### 참고자료
+
+    [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+
+    [while](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/while)
+
+    [do...while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
+
+    [for](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+
+    [JavaScript while Loop](https://www.w3schools.com/js/js_loop_while.asp)
+
+    [JavaScript for Loop](https://www.w3schools.com/js/js_loop_for.asp)
+
+    [JavaScript while Statement](https://www.w3schools.com/jsref/jsref_while.asp)
+
+    [JavaScript do/while Statement](https://www.w3schools.com/jsref/jsref_dowhile.asp)
+
+    [JavaScript for Statement](https://www.w3schools.com/jsref/jsref_for.asp)
