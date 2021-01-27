@@ -190,20 +190,20 @@ function sum(left, right) {
 	function lightAndDarkHandler() {
 		var target = document.querySelector('body');
 		if(this.value === 'dark') {
-		target.style.backgroundColor = 'black';
-		target.style.color = 'white';
-		this.value = 'light';
-	
-		var anchorList = document.querySelectorAll('a');
-		var i = 0;
-		while (i < anchorList.length) {
-			anchorList[i].style.color = 'deepskyblue';
-			i = i + 1;
-		}
-	} else {
-		target.style.backgroundColor = 'white';
-		target.style.color = 'black';
-		this.value = 'dark';
+			target.style.backgroundColor = 'black';
+			target.style.color = 'white';
+			this.value = 'light';
+
+			var anchorList = document.querySelectorAll('a');
+			var i = 0;
+			while (i < anchorList.length) {
+				anchorList[i].style.color = 'deepskyblue';
+				i = i + 1;
+			}
+		} else {
+			target.style.backgroundColor = 'white';
+			target.style.color = 'black';
+			this.value = 'dark';
 
 			var anchorList = document.querySelectorAll('a');
 			var i = 0;
@@ -237,20 +237,20 @@ lightAndDarkHandler 함수에서는 이를 매개변수로 받아서 사용하�
 	function lightAndDarkHandler(self) {
 		var target = document.querySelector('body');
 		if(self.value === 'dark') {
-		target.style.backgroundColor = 'black';
-		target.style.color = 'white';
-		self.value = 'light';
-	
-		var anchorList = document.querySelectorAll('a');
-		var i = 0;
-		while (i < anchorList.length) {
-			anchorList[i].style.color = 'deepskyblue';
-			i = i + 1;
-		}
-	} else {
-		target.style.backgroundColor = 'white';
-		target.style.color = 'black';
-		self.value = 'dark';
+			target.style.backgroundColor = 'black';
+			target.style.color = 'white';
+			self.value = 'light';
+
+			var anchorList = document.querySelectorAll('a');
+			var i = 0;
+			while (i < anchorList.length) {
+				anchorList[i].style.color = 'deepskyblue';
+				i = i + 1;
+			}
+		} else {
+			target.style.backgroundColor = 'white';
+			target.style.color = 'black';
+			self.value = 'dark';
 
 			var anchorList = document.querySelectorAll('a');
 			var i = 0;
