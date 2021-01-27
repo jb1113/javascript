@@ -188,34 +188,83 @@
 
     ```jsx
     <script>
-    			function lightAndDarkHandler(self) {
-    				var target = document.querySelector('body');
-    				if(self.value === 'dark') {
-    					target.style.backgroundColor = 'black';
-    					target.style.color = 'white';
-    					self.value = 'light';
+    	function lightAndDarkHandler() {
+    		var target = document.querySelector('body');
+    		if(this.value === 'dark') {
+    		target.style.backgroundColor = 'black';
+    		target.style.color = 'white';
+    		this.value = 'light';
     	
-    					var anchorList = document.querySelectorAll('a');
-    					var i = 0;
-    					while (i < anchorList.length) {
-    						anchorList[i].style.color = 'deepskyblue';
-    						i = i + 1;
-    					}
-    				} else {
-    					target.style.backgroundColor = 'white';
-    					target.style.color = 'black';
-    					self.value = 'dark';
+    		var anchorList = document.querySelectorAll('a');
+    		var i = 0;
+    		while (i < anchorList.length) {
+    			anchorList[i].style.color = 'deepskyblue';
+    			i = i + 1;
+    		}
+    	} else {
+    		target.style.backgroundColor = 'white';
+    		target.style.color = 'black';
+    		this.value = 'dark';
 
-    					var anchorList = document.querySelectorAll('a');
-    					var i = 0;
-    					while (i < anchorList.length) {
-    						anchorList[i].style.color = 'crimson';
-    						i = i + 1;
-    					}
-    				}
+    			var anchorList = document.querySelectorAll('a');
+    			var i = 0;
+    			while (i < anchorList.length) {
+    				anchorList[i].style.color = 'crimson';
+    				i = i + 1;
     			}
-    		</script>
+    		}
+    	}
+    </script>
+
+    ...
+    <input type="button" value="dark" onclick="lightAndDArkHandler();">
     ```
+
+    하지만 이 상태로 코드를 실행해보면 정상적으로 작동하지 않는 것을 볼 수 있습니다.
+    이유가 무엇일까요?
+    바로 코드 내에 포함되어 있는 this 때문입니다.
+    this는 그 코드가 포함되어 있는 태그를 가리키는데, 지금은 this가 정상적으로 버튼을 가리키지 못하고 있기 때문입니다.
+
+    이를 어떻게 해결할 수 있을까요?
+    바로 우리가 배운 매개변수와 인자를 활용하면 됩니다.
+    lightAndDarkHandler 함수를 사용할때 this를 사용해서 태그를 전달해주고, lightAndDarkHandler 함수에서는 이를 매개변수로 받아서 사용하는 것입니다.
+    그러면 다음과 같은 코드를 작성할 수 있습니다.
+
+    ```jsx
+    <script>
+    	function lightAndDarkHandler(self) {
+    		var target = document.querySelector('body');
+    		if(self.value === 'dark') {
+    		target.style.backgroundColor = 'black';
+    		target.style.color = 'white';
+    		self.value = 'light';
+    	
+    		var anchorList = document.querySelectorAll('a');
+    		var i = 0;
+    		while (i < anchorList.length) {
+    			anchorList[i].style.color = 'deepskyblue';
+    			i = i + 1;
+    		}
+    	} else {
+    		target.style.backgroundColor = 'white';
+    		target.style.color = 'black';
+    		self.value = 'dark';
+
+    			var anchorList = document.querySelectorAll('a');
+    			var i = 0;
+    			while (i < anchorList.length) {
+    				anchorList[i].style.color = 'crimson';
+    				i = i + 1;
+    			}
+    		}
+    	}
+    </script>
+
+    ...
+    <input type="button" value="dark" onclick="lightAndDArkHandler(this);">
+    ```
+
+    함수가 호출되는 버튼에서는 this를 인자로 넘겨주고, 함수에서는 this를 self라는 매개변수에 받아와서 이를 사용합니다.
 
     ---
 
@@ -258,9 +307,7 @@
     	</head>
     	<body>
     		<h1><a href="https://google.com">Google</a></h1>
-    		<input type="button" value="dark" onclick="
-    			lightAndDarkHandler(this);
-    		">
+    		<input type="button" value="dark" onclick="lightAndDarkHandler(this);">
     		<ul>
     			<li><a href="https://namu.wiki/w/HTML">HTML</a></li>
     			<li><a href="https://namu.wiki/w/CSS">CSS</a></li>
